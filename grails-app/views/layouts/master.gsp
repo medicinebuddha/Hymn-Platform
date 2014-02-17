@@ -6,6 +6,7 @@
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
     <head>
+        <base href="${request.contextPath}/"/>
         <title><g:layoutTitle default="Admin Dashboard | HYMN Platform "/></title>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -13,16 +14,23 @@
         <meta content="HYMN Platform" name="description" />
         <meta content="loonghymn" name="author" />
         <meta name="MobileOptimized" content="320">
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->          
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->   
+        <g:javascript>           
+            jQuery(document).ready(function() {    
+                App.init(); // initlayout and core plugins        
+            });
+        </g:javascript>   
     <r:require modules="globalCss,themeCss"/>
     <r:layoutResources/>
+
     <!-- END GLOBAL MANDATORY STYLES -->    
     <g:layoutHead/>
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
-     <!-- BEGIN HEADER --> 
+     <!-- BEGIN HEADER--> 
     <g:render template="/shared/metronic/headerTemplate"/>
     <!-- END HEADER -->
     <div class="clearfix"></div>
@@ -70,12 +78,7 @@
         <r:require modules="globalJs,themeJs,application"/>
         <r:layoutResources/>
         <!-- END CORE PLUGINS -->
-        <script>
-            jQuery(document).ready(function() {    
-            App.init(); // initlayout and core plugins        
-            });
-        </script>
-             <!-- END JAVASCRIPTS -->
+      <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
 </html>
