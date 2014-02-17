@@ -6,6 +6,7 @@
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
     <head>
+        <base href="${request.contextPath}/"/>
         <title><g:layoutTitle default="Admin Dashboard | HYMN Platform "/></title>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -14,13 +15,11 @@
         <meta content="loonghymn" name="author" />
         <meta name="MobileOptimized" content="320">
         <!-- BEGIN GLOBAL MANDATORY STYLES -->   
-	<g:javascript>
-		// handle theme colors
-        var setColor = function (color) {
-            $('#style_color').attr("href", '${request.contextPath}/assets/plugins/metronic/css/themes/' + color + '.css');
-            $.cookie('style_color', color);
-        }
-	</g:javascript>         
+        <g:javascript>           
+            jQuery(document).ready(function() {    
+                App.init(); // initlayout and core plugins        
+            });
+        </g:javascript>   
     <r:require modules="globalCss,themeCss"/>
     <r:layoutResources/>
 
@@ -79,12 +78,7 @@
         <r:require modules="globalJs,themeJs,application"/>
         <r:layoutResources/>
         <!-- END CORE PLUGINS -->
-        <script>
-            jQuery(document).ready(function() {    
-            App.init(); // initlayout and core plugins        
-            });
-        </script>
-             <!-- END JAVASCRIPTS -->
+      <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
 </html>

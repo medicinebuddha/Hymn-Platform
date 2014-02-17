@@ -1,6 +1,6 @@
 navigation={
     // Declare the "app" scope, used by default in tags
-    app {
+    system {
      
         // A nav item pointing to HomeController, using the default action
         home(titleText:"Index Page")
