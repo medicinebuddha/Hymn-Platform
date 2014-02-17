@@ -13,16 +13,25 @@
         <meta content="HYMN Platform" name="description" />
         <meta content="loonghymn" name="author" />
         <meta name="MobileOptimized" content="320">
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->          
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->   
+	<g:javascript>
+		// handle theme colors
+        var setColor = function (color) {
+            $('#style_color').attr("href", '${request.contextPath}/assets/plugins/metronic/css/themes/' + color + '.css');
+            $.cookie('style_color', color);
+        }
+	</g:javascript>         
     <r:require modules="globalCss,themeCss"/>
     <r:layoutResources/>
+
     <!-- END GLOBAL MANDATORY STYLES -->    
     <g:layoutHead/>
+
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
-     <!-- BEGIN HEADER --> 
+     <!-- BEGIN HEADER--> 
     <g:render template="/shared/metronic/headerTemplate"/>
     <!-- END HEADER -->
     <div class="clearfix"></div>
