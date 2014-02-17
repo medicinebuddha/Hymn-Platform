@@ -24,7 +24,7 @@
         </ul>
         
    <!-- BEGIN MAIN MENU -->         
-    <nav:menu id="mainmenu" scope="System.Mainmenu" custom="true" class="page-sidebar-menu"  forceChildren="true">             
+    <nav:menu id="mainmenu" custom="true" class="page-sidebar-menu"  forceChildren="true">             
         <li class="${active?'active':''}">
         <p:callTag tag="g:link" attrs="${linkArgs + [class:active ? 'active' : '']}">     
             <i class="${item.data.icon ? item.data.icon : 'icon-home'}"></i>
@@ -32,7 +32,6 @@
             <g:if test="${active}">
                 <span class="selected"></span>
             </g:if>
-
             <g:if test="${item.children}">
                 <span class="arrow"></span>
             </g:if>

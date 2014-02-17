@@ -794,10 +794,10 @@ var App = function () {
         }
 
         // handle theme colors
-        var setColor = function (color) {
-            $('#style_color').attr("href", "assets/plugins/metronic/css/themes/" + color + ".css");
-            $.cookie('style_color', color);
-        }
+        //var setColor = function (color) {
+        //    $('#style_color').attr("href", "/assets/plugins/metronic/css/themes/" + color + ".css");
+        //    $.cookie('style_color', color);
+//  }
 
         $('.toggler', panel).click(function () {
             $('.toggler').hide();
