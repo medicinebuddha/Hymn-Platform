@@ -1,6 +1,5 @@
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar navbar-collapse collapse">
-
    <!-- BEGIN MAIN MENU -->   
 	<g:set var="onlyOnce" value="${true}"/>      
     <nav:menu id="mainmenu" scope="System.Mainmenu" custom="true" class="page-sidebar-menu"  forceChildren="true">             
@@ -26,20 +25,15 @@
 <g:set var="onlyOnce" value="${false}"/>      
 </g:if>
         <li class="${active?'active':''}">
-        <p:callTag tag="g:link" attrs="${linkArgs + [class:active ? 'active' : '']}">     
+<g:if test="${item.children}">
+       		<a href="javascript:void(0);" class="${active ? 'active' : ''}"> 
             <i class="${item.data.icon ? item.data.icon : 'icon-home'}"></i>
             <span class="title"><nav:title item="${item}"/></span>
             <g:if test="${active}">
                 <span class="selected"></span>
             </g:if>
-
-            <g:if test="${item.children}">
                 <span class="arrow"></span>
-            </g:if>
-	  
-        </p:callTag>
-
-        <g:if test="${item.children}">
+         </a>
             <nav:menu scope="${item.id}" custom="true" class="sub-menu">
                 <li>
                 <p:callTag tag="g:link" attrs="${linkArgs + [class:active ? 'active' : '']}">                       
@@ -47,8 +41,17 @@
                 </p:callTag>
                 </li>
             </nav:menu>
-        </g:if>
+            	</g:if>
+	<g:else>
+		<p:callTag tag="g:link" attrs="${linkArgs + [class:active ? 'active' : '']}">
+            <i class="${item.data.icon ? item.data.icon : 'icon-home'}"></i>
+            <span class="title"><nav:title item="${item}"/></span>
+            <g:if test="${active}">
+                <span class="selected"></span>
+            </g:if>
+	         </p:callTag>
         </li>
+        	</g:else>
     </nav:menu>      
  <!-- END SIDEBAR MENU -->
 </div>
