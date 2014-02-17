@@ -1,6 +1,6 @@
 navigation={
     // Declare the "app" scope, used by default in tags
-    'System.Mainmenu' {
+    app {
      
         // A nav item pointing to HomeController, using the default action
         home(titleText:"Index Page")
@@ -24,6 +24,8 @@ navigation={
             faq(url:'javascript:;') // point to CMS
             makeRequest(controller:'supportRequest', action:'create')
         }
+
+	demoEntity(controller:'demoEntity',action:'index')
     }
      
     // Some back-end admin scaffolding stuff in a separate scope
