@@ -25,7 +25,11 @@ navigation={
             makeRequest(controller:'supportRequest', action:'create')
         }
 
-	demoEntity(controller:'demoEntity',action:'index')
+	demoEntity(controller:'demoEntity',action:'index'){
+            index()
+            create()
+            show()
+        }
     }
      
     // Some back-end admin scaffolding stuff in a separate scope
