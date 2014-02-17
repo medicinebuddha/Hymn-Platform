@@ -1,9 +1,11 @@
-<nav:set path="/content/about"/>
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar navbar-collapse collapse">
-    
-    <ul class="page-sidebar-menu">
-    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+
+   <!-- BEGIN MAIN MENU -->   
+	<g:set var="onlyOnce" value="${true}"/>      
+    <nav:menu id="mainmenu" scope="System.Mainmenu" custom="true" class="page-sidebar-menu"  forceChildren="true">             
+  <g:if test="${onlyOnce}">
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
         <li>
             <div class="sidebar-toggler hidden-phone"></div>
         </li>
@@ -21,10 +23,8 @@
             </form>
         </li>
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
-        </ul>
-        
-   <!-- BEGIN MAIN MENU -->         
-    <nav:menu id="mainmenu" scope="System.Mainmenu" custom="true" class="page-sidebar-menu"  forceChildren="true">             
+<g:set var="onlyOnce" value="${false}"/>      
+</g:if>
         <li class="${active?'active':''}">
         <p:callTag tag="g:link" attrs="${linkArgs + [class:active ? 'active' : '']}">     
             <i class="${item.data.icon ? item.data.icon : 'icon-home'}"></i>
@@ -36,6 +36,7 @@
             <g:if test="${item.children}">
                 <span class="arrow"></span>
             </g:if>
+	  
         </p:callTag>
 
         <g:if test="${item.children}">
