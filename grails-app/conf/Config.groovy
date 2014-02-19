@@ -85,7 +85,7 @@ grails.hibernate.cache.queries = false
 
 environments {
     development {
-        grails.logging.jul.usebridge = true
+        grails.logging.jul.usebridge = true       
     }
     production {
         grails.logging.jul.usebridge = false
@@ -111,5 +111,5 @@ log4j = {
            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
            'org.springframework',
            'org.hibernate',
-           'net.sf.ehcache.hibernate'
+           'net.sf.ehcache.hibernate' 
 }
