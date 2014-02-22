@@ -9,6 +9,8 @@
 //=require jquery.cookie.min
 //=require uniform/jquery.uniform.min
 //=require metronic/js/app
+//=require bootstrap-datepicker/js/bootstrap-datepicker
+
 
 
 //handle theme colors
@@ -17,8 +19,20 @@ var setColor = function(color) {
     $.cookie('style_color', color);
 }
 
+ var handleDatePickers = function () {
+
+        if (jQuery().datepicker) {
+            $('.date-picker').datepicker({             
+                autoclose: true
+            });
+            $('body').removeClass("modal-open"); // fix bug when inline picker is used in modal
+        }
+    }
+
 jQuery(document).ready(function() {
-    App.init(); // initlayout and core plugins        
+    App.init(); // initlayout and core plugins     
+    
+    handleDatePickers();  
 });
 
 

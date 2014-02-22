@@ -71,5 +71,6 @@ grails.project.dependency.resolution = {
         //runtime ":yui-minify-resources:0.1.5"
 	compile ":platform-core:1.0.RC6"
         compile ":asset-pipeline:1.5.3"
+        compile ":fields:1.3"
     }
 }
