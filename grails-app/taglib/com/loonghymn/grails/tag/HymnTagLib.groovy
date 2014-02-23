@@ -11,57 +11,56 @@ import groovy.xml.MarkupBuilder
  * @author loonghymn
  */
 class HymnTagLib {
+    
     static namespace = "uix"
+    def templateRoot="/_uix/"
+    
     def emoticon = { attrs, body ->
-        out << body() << (attrs.happy == 'true' ? " :-)" : " :-(")
+        def templateName="emoticon"
+        def template=templateRoot+templateName
+                       
+        def model=[mainContent:body(),attrs:attrs,body:body]
+        def content=render(template:template,model:model)
+        out<<content      
     }
     
-    def portlet = {attrs,body->
-        out<<"<div class='portlet box ${attrs.color?attrs.color:'blue'}'>";
-        out<<"<div class='portlet-title'>";
-        out<<"<div class='caption'><i class='icon-reorder'></i>${attrs.title}</div>";
-        out<<"<div class='tools'>";
-        if(attrs.collapse){
-            out<<"<a href='javascript:void(0);' class='collapse'></a>";
-        }
-        if(attrs.config){
-            out<<"<a href='#portlet-config' data-toggle='modal' class='config'></a>";
-        }
-        if(attrs.reload){
-            out<<"<a href='javascript:void(0);' class='reload'></a>";
-        }
-        if(attrs.remove){
-            out<<"<a href='javascript:void(0);' class='remove'></a>";
-        }
-        out<<"</div>";
-        out<<"</div>";
-        out<<"<div class='portlet-body form'>";
-        out<<body();
-        out<<"</div></div>";
+    def portlet  = {attrs,body->
+        def templateName="portlet"
+        def template=templateRoot+templateName
+        
+        def model=[attrs:attrs,body:body]
+        def content=render(template:template,model:model)
+        out<<content
     }
+    
     
     def dateField={attrs,body->
                 
-        out << "<div class='form-group'>"
-        out << "<label class='control-label col-md-3' for='${attrs.property}'>${attrs.label.encodeAsHTML()}</label>"
-        out << "<div class='col-md-9'>"
-        out <<" <input  type='text' class='form-control date-picker' id='${attrs.property}' name='${attrs.property}' value='${attrs.value}'"
-                
-        if(attrs.placeholder){
-            out<< "placeholder='${attrs.placeholder}'"
-        }
-        out<<"/>"
+        def templateName="dateField"
+        def template=templateRoot+templateName
         
-        if(attrs.hint){
-            out<<"<span class='help-block'>${attrs.hint}</span>"
-        }
-        
-        out <<"</div></div>"
+        def model=[attrs:attrs,body:body]
+        def content=render(template:template,model:model)
+        out<<content
     
     }
     
     def dateTimeField = {attrs,body->
+        def templateName="dateTimeField"
+        def template=templateRoot+templateName
         
+        def model=[attrs:attrs,body:body]
+        def content=render(template:template,model:model)
+        out<<content
+    }
+    
+    def timeField = {attrs,body->
+        def templateName="timeField"
+        def template=templateRoot+templateName
+        
+        def model=[attrs:attrs,body:body]
+        def content=render(template:template,model:model)
+        out<<content
     }
    
 }

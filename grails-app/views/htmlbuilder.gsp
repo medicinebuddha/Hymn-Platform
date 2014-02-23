@@ -20,7 +20,7 @@ book.title="grails in action";
 book.author="unknown";
 book.publishDate=new Date();
 book.save();
-%>
+        %>
         <g:set var="book" value="${Book.get(1)}"/>
 
 

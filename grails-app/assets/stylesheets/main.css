@@ -11,5 +11,7 @@
 *=require metronic/css/themes/default
 *=require metronic/css/custom
 *=require bootstrap-datepicker/css/datepicker
+*=//=require bootstrap-datetimepicker/css/datetimepicker
+*=//=require bootstrap-timepicker/css/timepicker
 */
 
