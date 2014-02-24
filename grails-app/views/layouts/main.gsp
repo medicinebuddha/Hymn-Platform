@@ -16,7 +16,9 @@
         <meta name="MobileOptimized" content="320">
         <!-- BEGIN GLOBAL MANDATORY STYLES -->   
     <asset:stylesheet src="main.css"/>
-    <link  href="assets/metronic/css/themes/default.css" rel="stylesheet" id="style_color"/>
+    <asset:stylesheet src="hymn.ui.css"/>
+
+    <link  href="assets/hymn.theme/css/themes/default.css" rel="stylesheet" id="style_color"/>
 <!-- END GLOBAL MANDATORY STYLES -->    
     <g:layoutHead/>
 
@@ -25,20 +27,20 @@
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
      <!-- BEGIN HEADER--> 
-    <g:render template="/shared/metronic/headerTemplate"/>
+    <g:render template="/shared/hymn.theme/headerTemplate"/>
     <!-- END HEADER -->
     <div class="clearfix"></div>
    <!-- BEGIN CONTAINER -->
     <div class="page-container">
          <!-- BEGIN SIDEBAR -->
-        <g:render template="/shared/metronic/sidebarTemplate"/>
+        <g:render template="/shared/hymn.theme/sidebarTemplate"/>
         <!-- END SIDEBAR -->
        <!-- BEGIN PAGE -->
         <div class="page-content">
             <!-- BEGIN APP MODAL FORM-->           
             <!-- END APP MODAL FORM-->
              <!-- BEGIN STYLE CUSTOMIZER -->
-            <g:render template="/shared/metronic/styleCustomizerTemplate"/>
+            <g:render template="/shared/hymn.theme/styleCustomizerTemplate"/>
              <!-- END BEGIN STYLE CUSTOMIZER -->  
              <!-- BEGIN PAGE HEADER-->
             <div class="row">
@@ -61,17 +63,18 @@
         </div>
      <!-- END CONTAINER -->
      <!-- BEGIN FOOTER -->
-        <g:render template="/shared/metronic/footerTemplate"/>
+        <g:render template="/shared/hymn.theme/footerTemplate"/>
         <!-- END FOOTER -->
  <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
  <!-- BEGIN CORE PLUGINS -->   
  <!--[if lt IE 9]>
- <script src="assets/plugins/respond.min.js"></script>
- <script src="assets/plugins/excanvas.min.js"></script> 
+ <asset:javascript src="respond.min.js"/>
+  <asset:javascript src="excanvas.min.js"/>
  <![endif]-->   
-<asset:javascript src="main.js"/>
-<!-- END CORE PLUGINS -->
- <!-- END JAVASCRIPTS -->
+        <asset:javascript src="main.js"/>
+        <asset:javascript src="hymn.ui.js"/>
+      <!-- END CORE PLUGINS -->
+       <!-- END JAVASCRIPTS -->       
 </body>
 <!-- END BODY -->
 </html>
