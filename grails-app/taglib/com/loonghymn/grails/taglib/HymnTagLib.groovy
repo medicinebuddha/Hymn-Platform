@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.loonghymn.grails.tag
+package com.loonghymn.grails.taglib
 import groovy.xml.MarkupBuilder
+import com.loonghymn.grails.utils.IdUtil
 /**
  *
  * @author loonghymn
@@ -16,8 +17,8 @@ class HymnTagLib {
     def templateRoot="/_uix/"
     
     def emoticon = { attrs, body ->
-        def templateName="emoticon"
-        def template=templateRoot+templateName
+        def tagName="emoticon"
+        def template=templateRoot+tagName
                        
         def model=[mainContent:body(),attrs:attrs,body:body]
         def content=render(template:template,model:model)
@@ -25,8 +26,8 @@ class HymnTagLib {
     }
     
     def portlet  = {attrs,body->
-        def templateName="portlet"
-        def template=templateRoot+templateName
+        def tagName="portlet"
+        def template=templateRoot+tagName
         
         def model=[attrs:attrs,body:body]
         def content=render(template:template,model:model)
@@ -36,8 +37,12 @@ class HymnTagLib {
     
     def dateField={attrs,body->
                 
-        def templateName="dateField"
-        def template=templateRoot+templateName
+        def tagName="dateField"
+        def template=templateRoot+tagName
+        
+        if(!attrs.id){
+            attrs.id=tagName+"_"+IdUtil.generateID()
+        }
         
         def model=[attrs:attrs,body:body]
         def content=render(template:template,model:model)
@@ -46,8 +51,8 @@ class HymnTagLib {
     }
     
     def dateTimeField = {attrs,body->
-        def templateName="dateTimeField"
-        def template=templateRoot+templateName
+        def tagName="dateTimeField"
+        def template=templateRoot+tagName
         
         def model=[attrs:attrs,body:body]
         def content=render(template:template,model:model)
@@ -55,8 +60,8 @@ class HymnTagLib {
     }
     
     def timeField = {attrs,body->
-        def templateName="timeField"
-        def template=templateRoot+templateName
+        def tagName="timeField"
+        def template=templateRoot+tagName
         
         def model=[attrs:attrs,body:body]
         def content=render(template:template,model:model)
